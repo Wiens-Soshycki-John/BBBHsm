@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bungus Enclaves</title>
+    <style>
+        /* General styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f9f9f9;
+        }
+
+        /* Navigation bar styles */
+        nav {
+            background-color: #ff9e0c;
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed; /* Keeps the navbar at the top */
+            width: 100%; /* Ensures it spans the page width */
+            top: 0; /* Positions the navbar at the top */
+            left: 0;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* Main content styles */
+        .content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            
+            /*padding-top: 60px; /* Leaves space for the fixed navbar */
+            box-sizing: border-box;
+        }
+
+        .form-container {
+            text-align: center;
+            background: #ffffff;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-container h1 {
+            margin-bottom: 20px;
+        }
+
+        .form-container input,
+        .form-container textarea,
+        .form-container button {
+            display: block;
+            width: 80%;
+            margin: 10px auto;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .form-container button {
+            background-color: #007BFF;
+            color: #ffffff;
+            cursor: pointer;
+        }
+
+        .form-container button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation bar -->
+    <nav>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="feature1.html">Encrypt-Message</a>
+            <a href="feature2.html">Decrypt-Message</a>
+            <a href="feature3.html">Remove-User</a>
+        </div>
+    </nav>
+
+    <!-- Main content -->
+    <div class="content">
+        <div class="form-container">
+            <h1>Bungus Enclave</h1>
+            <form action="#" method="post">
+                <input type="text" name="name" placeholder="Enter your name" required>
+                <textarea name="message" placeholder="Enter your message" rows="4" required></textarea>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
