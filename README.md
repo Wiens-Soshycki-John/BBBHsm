@@ -7,6 +7,10 @@ Alex Phan: stelx7@my.yorku.ca
 Delano Vernon: dominatorw20@gmail.com
 Augustino Dang: augdang@my.yorku.ca
 
+Video Demo: https://youtu.be/I_Sbk8MNOLI
+
+
+
 File Structure
 All html must stay in subfolder templates.
 
