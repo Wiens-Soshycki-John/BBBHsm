@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Decrypt Message</title>
+    <style>
+        /* General styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f9f9f9;
+        }
+
+        /* Navigation bar styles */
+        nav {
+            background-color: #ff9e0c;
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* Page content styles */
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        input, textarea {
+            display: block;
+            width: 80%;
+            padding: 10px;
+            margin: 10px auto;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #ff9e0c;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #e88a07;
+        }
+
+        /* Decrypted data box styling */
+        #decrypted-data {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #e6f7ff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            margin: 20px auto;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            font-family: monospace;
+            height: auto;
+        }
+
+        /* Error message box */
+        .error {
+            color: red;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation bar -->
+    <nav>
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/create_key">Create Key</a>
+            <a href="/encrypt">Encrypt Message</a>
+            <a href="/decrypt">Decrypt Message</a>
+            <a href="/sign">Sign & Verify</a>
+            <a href="/destroy">Remove Key</a>
+        </div>
+    </nav>
+
+    <!-- Decrypt Message Form -->
+    <div class="container">
+        <h1>Decrypt a Message</h1>
+        <form method="POST" action="/decrypt">
+            <!-- Swap key_id and message inputs as per request -->
+            <input type="text" name="key_id" placeholder="Enter Key ID" required>
+            <textarea name="encrypted_data" placeholder="Paste encrypted data here" rows="4" required></textarea>
+
+            <button type="submit">Decrypt Message</button>
+        </form>
+
+        <!-- Display Error Message if any -->
+        {% if error %}
+        <div class="error">
+            <p>{{ error }}</p>
+        </div>
+        {% endif %}
+
+        <!-- Display the Decrypted Data -->
+        {% if decrypted_data %}
+        <div id="decrypted-data">
+            <h3>Decrypted Data:</h3>
+            <textarea readonly rows="4" style="width: 100%;">{{ decrypted_data }}</textarea>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>

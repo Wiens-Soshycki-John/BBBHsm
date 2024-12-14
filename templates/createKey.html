@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Key</title>
+    <style>
+        /* General styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f9f9f9;
+        }
+
+        /* Navigation bar styles */
+        nav {
+            background-color: #ff9e0c;
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* Page content styles */
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        button {
+            background-color: #ff9e0c;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #e88a07;
+        }
+
+        .key-id {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #e6f7ff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation bar -->
+    <nav>
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/create_key">Create Key</a>
+            <a href="/encrypt">Encrypt Message</a>
+            <a href="/decrypt">Decrypt Message</a>
+            <a href="/sign">Sign & Verify</a>
+            <a href="/destroy">Remove Key</a>
+        </div>
+    </nav>
+
+    <!-- Key Creation Form -->
+    <div class="container">
+        <h1>Create Symmetric or Asymmetric Key</h1>
+        <form id="keyForm" method="POST">
+            <!-- Hidden field to dynamically set the form action -->
+            <input type="hidden" id="form-action" name="form-action" value="">
+
+            <!-- Button for creating a symmetric key -->
+            <button type="submit" name="key_type" value="symmetric" onclick="setFormAction('/create_key')">Create Symmetric Key</button>
+            <!-- Button for creating an asymmetric key -->
+            <button type="submit" name="key_type" value="asymmetric" onclick="setFormAction('/create_Asymkey')">Create Asymmetric Key</button>
+        </form>
+
+        <!-- Display the key_id after creation -->
+        {% if key_id %}
+        <div class="key-id" id="key-id">
+            <p>Key ID: {{ key_id }} (Key successfully created (increments by two if Asymmetric))</p>
+        </div>
+        {% endif %}
+    </div>
+
+    <script>
+        // Dynamically set the form action based on which button is clicked
+        function setFormAction(action) {
+            document.getElementById('form-action').value = action;
+            document.getElementById('keyForm').action = action;
+        }
+    </script>
+</body>
+</html>

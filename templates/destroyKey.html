@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destroy Key</title>
+    <style>
+        /* General styles */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+        }
+
+        /* Navigation bar styles */
+        nav {
+            background-color: #ff9e0c;
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* Page content styles */
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        input, select {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #ff9e0c;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #e88a07;
+        }
+
+        #successMessage {
+            display: none; /* Initially hidden */
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #e6f7ff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        #successMessage p {
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation bar -->
+    <nav>
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/createKey">Create Key</a>
+            <a href="/encryptMessage">Encrypt Message</a>
+            <a href="/decryptMessage">Decrypt Message</a>
+            <a href="/signVerify">Sign & Verify</a>
+            <a href="/destroy">Remove Key</a>
+        </div>
+    </nav>
+
+    <!-- Destroy Key Form -->
+    <div class="container">
+        <h1>Destroy a Key</h1>
+        <form action="/destroy" method="POST">
+            <!-- Key ID Input -->
+            <label for="key_id">Key ID:</label>
+            <input type="text" id="key_id" name="key_id" required placeholder="Enter Key ID to destroy (e.g., key_116 or key_116_pub)">
+
+            <!-- Submit Button -->
+            <button type="submit">Destroy Key</button>
+        </form>
+
+        <!-- Display the success or error message -->
+        {% if message %}
+        <div id="successMessage">
+            <p>{{ message }}</p>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
