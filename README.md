@@ -1,7 +1,11 @@
 # BBBHsm
 Amateur HSM to be deployed on a BeagleBone Black
 
-
+Contributors:
+John Wiens-Soshycki: johnworkws@gmail.com/johnws@my.yorku.ca
+Alex Phan: stelx7@my.yorku.ca
+Delano Vernon: dominatorw20@gmail.com
+Augustino Dang: augdang@my.yorku.ca
 
 File Structure
 All html must stay in subfolder templates.
